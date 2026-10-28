@@ -13,7 +13,7 @@
 """실습 03: 같은 회귀 문제에서도 주 지표에 따라 후보의 순서가 달라집니다."""
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 y = [100, 200, 300, 400]  # 실제 실행시간(ms)
-predictions = {"A": [100, 200, 300, 400], "B": [130, 230, 330, 430]}
+predictions = {"A": [100, 200, 300, 480], "B": [130, 230, 330, 430]}
 for name, pred in predictions.items():
     mae = mean_absolute_error(y, pred) #위에서 선행 제공된 mean_absolute_error에 선행 제공된 y 값 + predict을 받아 mae = mean_absolute_error를 받쳐 실행되게 한다
      # MAE 계산: 실제값(y)과 예측값(pred)의 절대 오차 평균을 구합니다.
