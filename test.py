@@ -66,3 +66,31 @@
 # return out
 # # 전체 예제에는 열·비음수·무한대 검사도 포함
 
+# features = FunctionTransformer(
+# add_features, validate=False)
+# pipe = Pipeline([
+# ('features', features),
+# ('pre', make_pre(engineered=True)),
+# ('model', LogisticRegression(C=1, max_iter=1000))])
+# pipe.fit(X_train, y_train)
+# print(pipe[:-1].transform(X_train).shape)
+# print(pipe[:-1].transform(X_valid).shape)
+
+# for name in ['Logistic', 'Logistic_FE']:
+# pipe = candidates()[name]
+# cv = cross_validate(pipe, X_train, y_train,
+# cv=CLS_FOLDS, scoring='f1', n_jobs=1)
+# pipe.fit(X_train, y_train)
+# print(name, cv['test_score'].mean(),
+# f1_score(y_valid, pipe.predict(X_valid)))
+
+# cv = cross_validate(pipe, X_train, y_train,
+# cv=CLS_FOLDS, scoring='f1', return_estimator=True)
+# for (fit_idx, _), fitted in zip(
+# CLS_FOLDS, cv['estimator']):
+# values = add_features(X_train.iloc[fit_idx])
+# expected = values[NUM + DERIVED].median()
+# num = fitted['pre'].named_transformers_['num']
+# actual = num['imputer'].statistics_
+# assert np.allclose(expected.to_numpy(), actual)
+
